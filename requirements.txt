@@ -2,7 +2,7 @@ asgiref==3.6.0
 astroid==2.12.12
 autopep8==2.0.0
 dill==0.3.6
-Django==4.1.7
+Django==4.1.9
 isort==5.10.1
 lazy-object-proxy==1.8.0
 mccabe==0.7.0
