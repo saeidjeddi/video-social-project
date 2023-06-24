@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{% endblock %}
+
+{% block base %}
+
+
+
+
+
+
+<div class="rtl">
+                <h2 class="tm-text-primary mb-5">ورود</h2>
+{% if form.non_field_errors %}
+<div class="alert alert-danger">{{ form.non_field_errors }}</div>
+{% endif %}
+                <form  action="" method="POST" class="col-6 mx-auto" novalidate>
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {% if form.email.errors %}
+                        <div class="alert alert-danger">{{ form.email.errors }}</div>
+                        {% endif %}
+                        <input type="email" name="email" class="form-control rounded-0" placeholder="ایمیل" required />
+                    </div>
+                    <div class="form-group">
+                         {% if form.password1.errors %}
+                        <div class="alert alert-danger">{{ form.password1.errors}}</div>
+                        {% endif %}
+                        <input type="password" name="password" class="form-control rounded-0" placeholder="کلمه عبور" required />
+                    </div>
+
+                    <div class="form-group tm-text-right">
+                        <button type="submit" class="btn btn-primary">ورود</button>
+                    </div>
+                </form>
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}

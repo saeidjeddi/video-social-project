@@ -4,7 +4,9 @@
 .img_profile_header{
     width: 60px;
     height: 60px;
-    background-color: aqua;
+    background-color: #dc3545;
+    border-radius: 50%;
+    margin-left : 10px;
 }
 
 .tm-bg-gray.pt-5.pb-3.tm-text-gray.tm-footer {
@@ -29,4 +31,14 @@
   text-align: right;
 }
 
+.tm-text-primary.mb-5 {
+  margin-right: 20%;
+}
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
 
+.img{
+    border-radius: 50%;
+}

@@ -1,7 +1,7 @@
 {% load static %}
 
 <div class="container-fluid">
-<a class="navbar-brand" href="#">
+<a class="navbar-brand" href="{% url 'home:index' %}">
 <i class="fas fa-film mr-2"></i>
 آپارات
 </a>
@@ -16,21 +16,33 @@
 
 
 <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-<li class="nav-item">
-<a class="nav-link nav-link-1 active" aria-current="page" href="index.html">ویدیو</a>
-</li>
+
 <li class="nav-item">
 <a class="nav-link nav-link-3" href="about.html">درباره ما</a>
 </li>
 <li class="nav-item">
 <a class="nav-link nav-link-4" href="contact.html">تماس باما</a>
-</li><li class="nav-item">
-        {#    #}
+</li>
+    {% if request.user.is_authenticated %}
+
+        <li class="nav-item">
+<a class="nav-link nav-link-1 active" aria-current="page" href="{% url 'home:index' %}">صفحه اول</a>
+</li>
+
+
+           <li class="nav-item">
+
+
 
     <div class="btn-group">
-        <div class="img_profile_header"></div>
+        {% if request.user.profile_image %}
+        <div class="img_profile_header"><img src="{{ request.user.profile_image.url }}" alt="user" width="60px" height="60px" class="img"></div>
+        {% else %}
+        <div class="img_profile_header"><img src="{% static 'img/user.png' %}" alt="user" width="60px" height="60px" class="img"></div>
+        {% endif %}
+
   <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-    بخش کاربری
+    {{ request.user.username }}
   </button>
   <ul class="dropdown-menu">
 
@@ -42,27 +54,33 @@
       <li><hr class="dropdown-divider"></li>
     <li><a class="dropdown-item" href="#">آپلود و بارگذاری ویدیو </a></li>
       <li><hr class="dropdown-divider"></li>
-    <li><a class="dropdown-item" href="#">خروج </a></li>
+    <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">خروج </a></li>
   </ul>
 </div>
 
 </li>
 
+    {% else %}
+
+        <li class="nav-item">
+        <div class="d-flex">
+<a class="nav-link nav-link-4" href="{% url 'accounts:register' %}">ثبت نام</a>
+            <span class="nav-link">/</span>
+<a class="nav-link nav-link-4" href="{% url 'accounts:login' %}">ورود</a>
+        </div>
+</li>
+
+        <li class="nav-item">
+<a class="nav-link nav-link-1 active" aria-current="page" href="{% url 'home:index' %}">صفحه اول</a>
+</li>
+
+
+      {% endif %}
 
 
 
 
 </ul>
-
-
-
-
-
-
-
-
-
-
 </div>
 
 
