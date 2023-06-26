@@ -42,3 +42,18 @@
 .img{
     border-radius: 50%;
 }
+.imag1 {
+    /*position: absolute;*/
+    /*top: 100%;*/
+    /*right: 67%;*/
+    width: 100px;
+    height: 100px;
+    border-radius: 10%;
+    /*margin-top: 5px;*/
+    box-shadow: 6px 8px 9px -1px;
+}
+
+.m {
+  margin-bottom: 14px;
+  display: inline-block;
+}

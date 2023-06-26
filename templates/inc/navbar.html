@@ -48,7 +48,7 @@
 
     <li><a class="dropdown-item" href="#">پروفایل</a></li>
       <li><hr class="dropdown-divider"></li>
-    <li><a class="dropdown-item" href="#">ویرایش پروفایل</a></li>
+    <li><a class="dropdown-item" href="{% url 'accounts:edit' user_id=user.id %}">ویرایش پروفایل</a></li>
       <li><hr class="dropdown-divider"></li>
     <li><a class="dropdown-item" href="#">تغییر کلمه عبور</a></li>
       <li><hr class="dropdown-divider"></li>

@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{% endblock %}
+
+{% block base %}
+
+
+
+
+
+
+<div class="rtl">
+                <h2 class="tm-text-primary mb-5">ویرایش</h2>
+{% if form.non_field_errors %}
+<div class="alert alert-danger">{{ form.non_field_errors }}</div>
+{% endif %}
+
+                <form  action="" method="POST" class="col-6 mx-auto" novalidate enctype="multipart/form-data">
+                    {% csrf_token %}
+{#                    <div class="form-group">#}
+{#                        {% if form.email.errors %}#}
+{#                        <div class="alert alert-danger">{{ form.email.errors }}</div>#}
+{#                        {% endif %}#}
+{#                        {{ form.email }}#}
+{#                    </div>#}
+                        <div class="form-group">
+                             {% if form.username.errors %}
+                            <div class="alert alert-danger">{{ form.username.errors }}</div>
+                            {% endif %}
+                        {{ form.username }}
+                    </div>
+                    <div class="form-group">
+                         {% if form.email.errors %}
+                        <div class="alert alert-danger">{{ form.email.errors}}</div>
+                        {% endif %}
+                        {{ form.email }}
+                    </div>
+                    <div class="form-group">
+                         {% if form.profile_image.errors %}
+                        <div class="alert alert-danger">{{ form.profile_image.errors }}</div>
+                        {% endif %}
+                    <div class="m">
+                    <img src="{{ request.user.profile_image.url }}" alt="" class="imag1">
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        {{ form.profile_image }}
+
+                    </div>
+
+
+                    </div>
+
+{#                    <div class="form-group">#}
+{#                         {% if form.hide_email.errors %}#}
+{#                        <div class="alert alert-danger">{{ form.hide_email.errors }}</div>#}
+{#                        {% endif %}#}
+{#                        {{ form.hide_email }}#}
+{#                    </div>#}
+
+
+                    <div class="form-group tm-text-right">
+                        <button type="submit" class="btn btn-primary">تغییر</button>
+                    </div>
+
+                </form>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}
